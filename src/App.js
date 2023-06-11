@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Routes, Route } from 'react-router-dom';
+import Footer from './Component/Footer';
+import Header from './Component/Header';
+import Homepage from './Component/Homepage';
+import About from './Component/About';
+import Contact from './Component/Contact';
 function App() {
+  const getheightval = () => {
+    const winheight = window.innerHeight;
+    const sechgt = document.getElementById('homeSection')
+    const hmsec = document.getElementsByClassName('page__wrap')[0]
+    sechgt.style.height = winheight + "px"
+    hmsec.style.height = winheight + "px"
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className='page__wrap' onLoad={getheightval}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Homepage getheightval={getheightval} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }
