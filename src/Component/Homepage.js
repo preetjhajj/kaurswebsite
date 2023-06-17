@@ -1,17 +1,36 @@
 import React from 'react'
 import './style.css'
+import Typed from 'typed.js';
 
-function Homepage({getheightval}) {
+function Homepage() {
+    const typing = React.useRef(null);
+    React.useEffect(() => {
+        const typed = new Typed(typing.current, {
+        strings: ['Website designer', 'Website Developer','Logo Designer', 'Banner Designer'],
+        typeSpeed: 100,
+        loop: true,
+        showCursor: true,
+        });
+
+        return () => {
+        // Destroy Typed instance during cleanup to stop animation
+        typed.destroy();
+        };
+    }, []);
     return (
         <>
-            <section id='homeSection' onLoad={getheightval} style={{backgroundImage: "url(/images/watch-dev.jpg)"}}>
-                {/* <div className='mainlogo'><img src="./images/logo-latest.png" alt="logo" /></div> */}
-                
+            <section className='mainhero tb__space'>
+                <div className='container'>
+                    <div className='hero__inner'>
+                        <div className='hero__left'>
+                            <h1>Hi! I am Gurpreet Kaur. I'm a passionate <span className='bgpink' ref={typing} /> </h1>
+                        </div>
+                        <div className='hero__right'>
+                            <img src="./images/banner-kaur.png" alt="banner-main"/>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <div className='bannercontent'>
-                <h1 className='textcenter'>Welcome in Kaur's Website</h1>
-                <h2 className='textcenter'>Under Construction.</h2>
-            </div>
         </>
     )
 }

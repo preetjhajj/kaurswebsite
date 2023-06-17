@@ -8,7 +8,7 @@ function Header() {
             <div className='header-back'>
                 <div className='header__wrap'>
                     <div className='logo'>
-                    <img src="./images/logo-latest.png" alt="logo"/>
+                    <Link to="/"><img src="./images/logo-latest.png" alt="logo"/></Link> 
                     </div>
                     <div className='menu'>
                         <ul>
