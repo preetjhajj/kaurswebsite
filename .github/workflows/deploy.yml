@@ -26,5 +26,5 @@ jobs:
         with:
           server: ftp.kaurswebsite.com
           username: kaurswebsite@kaurswebsite.com
-          password: kaurswebsite@1994
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
