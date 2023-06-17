@@ -21,20 +21,29 @@ jobs:
           name: dist
           path: dist
   deploy:
-    name: Deploy 🚀
-    needs: build
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout repository
-        uses: actions/checkout@main
-      - name: Download artifact
-        uses: actions/download-artifact@main
-        with: 
-          name: dist
-          path: dist
-      - name: Sync files to hosting
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with: 
-          server: ftp.kaurswebsite.com
-          username: kaurswebsite@kaurswebsite.com
-          password: ${{ secrets.ftp_password }}
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.18.0'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+    
+    - name: List output files
+      run: find build/ -print
+      
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: ftp.kaurswebsite.com
+        username: kaurswebsite@kaurswebsite.com
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: build/
