@@ -1,6 +1,6 @@
 {
     "name": "kaurswebsite",
-    "homepage": "http://kaurswebsite.com/",
+    "homepage": "./",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
