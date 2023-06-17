@@ -27,4 +27,5 @@ jobs:
           server: ftp.kaurswebsite.com
           username: kaurswebsite@kaurswebsite.com
           password: kaurswebsite@1994
+          local-dir: ./build/
           
