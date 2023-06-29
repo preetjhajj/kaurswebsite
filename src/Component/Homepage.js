@@ -21,7 +21,7 @@ function Homepage() {
         <>
             <section className='mainhero tb__space'>
                 <div className='container'>
-                    <div className='hero__inner'>
+                    <div className='hero__inner flex__row flex__align-center flex__justify-center'>
                         <div className='hero__left'>
                             <h1>Hi! I am Gurpreet Kaur. I'm a passionate <span className='bgpink' ref={typing} /> </h1>
                         </div>

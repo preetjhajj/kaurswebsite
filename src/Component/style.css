@@ -5,6 +5,14 @@
     --black: #000000;
 }
 
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 .container {
     text-align: center;
 }
@@ -30,18 +38,17 @@ p {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 55px;
     line-height: 1.4;
 }
 
 h2 {
-    font-size: 55px;
+    font-size: 50px;
 }
 
 .header-back {
     background: var(--pink);
-    margin: 30px auto 0;
-    width: 1300px;
+    margin: 30px auto 0 !important;
 }
 
 #main__header {
@@ -56,6 +63,23 @@ h2 {
 
 .tb__space {
     padding: 60px 0px;
+}
+
+.flex__row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex__align-center {
+    align-items: center;
+}
+
+.flex__justify-center {
+    justify-content: center;
+}
+
+.flex__justify-spbtwn {
+    justify-content: space-between;
 }
 
 .maintitle h1 {
@@ -174,13 +198,13 @@ h2 {
     border-color: var(--blue);
 }
 
-.hero__inner {
+.hero__left h1 {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 .hero__right {
-    width: 50%;
+    width: 48%;
 }
 
 .hero__right img {
@@ -188,7 +212,7 @@ h2 {
 }
 
 .hero__left {
-    width: 50%;
+    width: 48%;
     text-align: left;
 }
 
@@ -292,5 +316,133 @@ span.bgpink {
     }
     100% {
         transform: translate(0%, 0);
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .container {
+        width: 80%;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    .hero__right img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    h1 {
+        font-size: 42px;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    h1 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .flex__row {
+        flex-direction: column;
+    }
+    .hero__left {
+        width: 100%;
+    }
+    .container {
+        width: 90%;
+    }
+    p {
+        font-size: 16px;
+    }
+    .hero__left h1 {
+        min-height: 110px;
+    }
+    .menu {
+        display: none;
+    }
+    #mainmenu.show {
+        position: fixed;
+        top: 0;
+        background: var(--pink);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        display: block;
+        opacity: 0.8;
+    }
+    .menu.show ul {
+        display: flex;
+        width: 100%;
+        position: fixed;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #menuToggle {
+        display: flex;
+        flex-direction: column;
+        left: -20px;
+        top: 0;
+        position: relative;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+        -webkit-touch-callout: none;
+    }
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: var(--blue);
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    }
+    #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+    #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+    #menuToggle input:checked~span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: var(--blue);
+    }
+    #menuToggle input:checked~span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    #menuToggle input:checked~span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+}
+
+@media screen and (min-width:800px) {
+    input#menucheck {
+        display: none;
+    }
+}
+
+@media screen and (max-width:425px) {
+    h1 {
+        font-size: 30px;
     }
 }
