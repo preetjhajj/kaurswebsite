@@ -65,6 +65,14 @@ h2 {
     padding: 60px 0px;
 }
 
+.tp__space {
+    padding: 60px 0 0;
+}
+
+.bp__space {
+    padding: 0 0 60px;
+}
+
 .flex__row {
     display: flex;
     flex-direction: row;
@@ -82,7 +90,8 @@ h2 {
     justify-content: space-between;
 }
 
-.maintitle h1 {
+.maintitle h1,
+.maintitle h2 {
     width: fit-content;
     margin: 0px auto 30px;
     animation: titlemove 3s ease-in-out infinite;
@@ -198,6 +207,10 @@ h2 {
     border-color: var(--blue);
 }
 
+.mainhero {
+    margin-top: 40px;
+}
+
 .hero__left h1 {
     display: flex;
     flex-wrap: wrap;
@@ -241,6 +254,7 @@ span.bgpink {
     flex-direction: column;
     width: 70%;
     margin: auto;
+    flex-wrap: wrap;
 }
 
 .contactform .full {
@@ -249,6 +263,7 @@ span.bgpink {
     align-items: center;
     justify-content: space-between;
     margin: 0 0px 30px;
+    flex-wrap: wrap;
 }
 
 .contactform .half {
@@ -282,6 +297,20 @@ span.bgpink {
 .contactform .full input::placeholder,
 .contactform .full textarea::placeholder {
     color: var(--blue);
+    opacity: 0.6;
+}
+
+.contactform .default__btn {
+    text-align: right;
+}
+
+.divider {
+    width: 40%;
+    margin: auto;
+}
+
+.divider img {
+    width: 100%;
 }
 
 .copyright {
@@ -290,6 +319,54 @@ span.bgpink {
     color: #fff;
     padding: 3px 10px;
     text-transform: uppercase;
+}
+
+.skillcircle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.skill__title {
+    background: aquamarine;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills__outer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.skilltitle {
+    background: rgb(172 173 190 / 46%);
+    margin: 2px 0px;
+    min-width: 200px;
+    color: #e08e1b;
+}
+
+.hm__contact {
+    position: relative;
+}
+
+.handemail {
+    position: absolute;
+    right: -18px;
+    bottom: -8px;
+    z-index: -9;
 }
 
 @keyframes backscroll {
@@ -316,6 +393,17 @@ span.bgpink {
     }
     100% {
         transform: translate(0%, 0);
+    }
+}
+
+@keyframes skilltitlemove {
+    0% {
+        margin-left: -500px;
+        opacity: 0;
+    }
+    100% {
+        margin-left: 0px;
+        opacity: 1;
     }
 }
 
@@ -433,11 +521,35 @@ span.bgpink {
     #menuToggle input:checked~span:nth-last-child(2) {
         transform: rotate(-45deg) translate(0, -1px);
     }
+    .skillcircle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contactform .half {
+        width: 100%;
+    }
+    .contactform .half:first-child {
+        margin-bottom: 30px;
+    }
 }
 
 @media screen and (min-width:800px) {
     input#menucheck {
         display: none;
+    }
+}
+
+@media screen and (max-width:640px) {
+    .hero__right {
+        width: 100%;
+    }
+    .skills-left img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .skillcircle {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
